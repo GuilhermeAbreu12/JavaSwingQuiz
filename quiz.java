@@ -21,16 +21,31 @@ public class quiz{
         titulo.setForeground(Color.WHITE);
         header.add(titulo);
 
+        // Main
         JPanel main = new JPanel();
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
 
+        JPanel question = new JPanel();
+        question.setPreferredSize(new Dimension(400, 100));
+        question.setBackground(Color.GRAY);
 
+        JPanel question2 = new JPanel();
+        question2.setPreferredSize(new Dimension(400, 100));
+        question2.setBackground(Color.GRAY);
+
+        main.add(question); 
+        main.add(Box.createVerticalStrut(20));
+        main.add(question2);
+        main.add(Box.createVerticalStrut(20));
+
+        // Footer
         JPanel footer = new JPanel();
         footer.setBackground(Cores.Azul01());
         footer.setPreferredSize(new Dimension(400, 60));
 
         // Configurações finais
         frame.add(header, BorderLayout.NORTH);
+        frame.add(main);
         frame.add(footer, BorderLayout.SOUTH);
         frame.setVisible(true);
     }
