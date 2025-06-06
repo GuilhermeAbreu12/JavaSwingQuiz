@@ -1,0 +1,15 @@
+- Criar uma janela;
+JFrame frame = new JFrame();
+
+- Criar um botão:
+JButton button = new JButton();
+
+// Configurações do botão
+
+JButton button = new JButton("Abrir");
+button.setBounds(40,100, 300, 200);
+button.setBackground(Cores.Azul01());
+button.setForeground(Color.WHITE);
+button.setFocusable(false);
+
+frame.add(button);
