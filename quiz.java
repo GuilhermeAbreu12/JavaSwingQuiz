@@ -6,7 +6,7 @@ public class quiz{
 
         // Configurações da janela
         JFrame frame = new JFrame();
-        frame.setSize(400,500);
+        frame.setSize(1000,800);
         frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
@@ -26,12 +26,13 @@ public class quiz{
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
 
         JPanel question = new JPanel();
-        question.setPreferredSize(new Dimension(400, 100));
-        question.setBackground(Color.GRAY);
+        JLabel texto = new JLabel("Texto geéosijdsfoisjfosijsoifjsdoijoijsgosigudhgsfiuhsdgpdfiuhfdgodiudshfiuhfiufdhiufhdsgiudhfsufhdfguuuu");
+        question.add(texto);
 
         JPanel question2 = new JPanel();
-        question2.setPreferredSize(new Dimension(400, 100));
-        question2.setBackground(Color.GRAY);
+
+        Styles.questionStyle(question);
+        Styles.questionStyle(question2);
 
         main.add(question); 
         main.add(Box.createVerticalStrut(20));
@@ -63,5 +64,17 @@ class Fontes{
     }
     public static Font Sans_serif_bold(){
         return new Font("SansSerif", Font.BOLD, 24);
+    }
+}
+
+class Styles {
+    public static void questionStyle(JComponent component){
+        Dimension size = new Dimension(700, 100);
+        component.setPreferredSize(size);
+        component.setMaximumSize(size);
+        component.setMinimumSize(size);
+        component.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        component.setBackground(Color.RED);
     }
 }
