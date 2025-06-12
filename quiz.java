@@ -16,28 +16,47 @@ public class quiz{
         header.setBackground(Cores.Azul01());
         header.setPreferredSize(new Dimension(400, 60));
 
-        JLabel titulo = new JLabel("<html>Portu<span style='color: blue;'>Quiz</span></html>");
+        JLabel titulo = new JLabel("<html>Portu<span style='color: yellow;'>Quiz</span></html>");
         titulo.setFont(Fontes.Sans_serif_bold());
         titulo.setForeground(Color.WHITE);
+
         header.add(titulo);
 
         // Main
         JPanel main = new JPanel();
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
 
-        JPanel question = new JPanel();
-        JLabel texto = new JLabel("Texto geéosijdsfoisjfosijsoifjsdoijoijsgosigudhgsfiuhsdgpdfiuhfdgodiudshfiuhfiufdhiufhdsgiudhfsufhdfguuuu");
-        question.add(texto);
+        JLabel subtitle = new JLabel("Teste seus conhecimentos sobre plurais");
+        subtitle.setFont(Fontes.Sans_serif());
+        subtitle.setForeground(Cores.Amarelo01());
+        subtitle.setAlignmentX(Component.CENTER_ALIGNMENT);
+        subtitle.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
 
+        // Retângulo de perguntas
+        JPanel question1 = new JPanel();
         JPanel question2 = new JPanel();
-
-        Styles.questionStyle(question);
+        
+        // Adição do estilo aos retângulos de perguntas
+        Styles.questionStyle(question1);
         Styles.questionStyle(question2);
 
-        main.add(question); 
-        main.add(Box.createVerticalStrut(20));
-        main.add(question2);
-        main.add(Box.createVerticalStrut(20));
+        // Textos das perguntas
+        JLabel texto1 = new JLabel("O plural de degrau é degraus?");
+        JLabel texto2 = new JLabel("O plural de gravidez é gravidezes?");
+        
+        // Adição do estilo ao texto
+        Styles.fontStyle(texto1);
+        Styles.fontStyle(texto2);
+
+        // Adicionando o texto ao retângulo de perguntas
+        question1.add(texto1);
+        question2.add(texto2);
+       
+        // Adicionando as perguntas ao main com espaçamento entre elas
+        main.add(subtitle);
+        main.add(Box.createVerticalStrut(20)); 
+        main.add(question1); main.add(Box.createVerticalStrut(20)); 
+        main.add(question2); main.add(Box.createVerticalStrut(20));
 
         // Footer
         JPanel footer = new JPanel();
@@ -52,29 +71,41 @@ public class quiz{
     }
 }
 
+// Classes auxiliares para cores e estilos
+
 class Cores{
     public static Color Azul01(){
         return new Color(0, 0, 100);
     }
+    public static Color Cinza01(){
+        return new Color(200, 200, 200);
+    }
+    public static Color Amarelo01(){
+        return new Color(220, 220, 0);
+    }
 }
 
+class Styles {
+    public static void questionStyle(JComponent component){
+        Dimension size = new Dimension(900, 100);
+        component.setPreferredSize(size);
+        component.setMaximumSize(size);
+        component.setMinimumSize(size);
+        component.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        component.setBackground(Cores.Cinza01());
+    }
+    public static void fontStyle(JLabel label){
+        label.setFont(Fontes.Sans_serif());
+        label.setForeground(Color.BLACK);
+        label.setAlignmentX(Component.CENTER_ALIGNMENT);
+    }
+}
 class Fontes{
     public static Font Sans_serif(){
         return new Font("SansSerif", Font.PLAIN, 24);
     }
     public static Font Sans_serif_bold(){
         return new Font("SansSerif", Font.BOLD, 24);
-    }
-}
-
-class Styles {
-    public static void questionStyle(JComponent component){
-        Dimension size = new Dimension(700, 100);
-        component.setPreferredSize(size);
-        component.setMaximumSize(size);
-        component.setMinimumSize(size);
-        component.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        component.setBackground(Color.RED);
     }
 }
