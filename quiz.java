@@ -42,7 +42,9 @@ public class quiz{
         // Separando os retângulos em duas partes
         JPanel textArea = new JPanel();
         Panels.TextArea(textArea);
-        JPanel optionsArea = new JPanel();
+    
+        JPanel optionsArea1 = new JPanel();
+        Panels.OptionsArea(optionsArea1);
 
         // Textos das perguntas
         JLabel texto1 = new JLabel("O plural de degrau é degraus?");
@@ -62,8 +64,11 @@ public class quiz{
         Btn.FalseButton(question1_option2);
 
         // Adicionando as dependências aos retângulos de perguntas
-        question1.add(question1_option1);
-        question1.add(question1_option2);
+        optionsArea1.add(question1_option1);
+        optionsArea1.add(question1_option2);
+
+        question1.add(textArea);
+        question1.add(optionsArea1);
 
         question2.add(texto2);
 
@@ -92,11 +97,14 @@ class Cores{
     public static Color Azul01(){
         return new Color(0, 0, 100);
     }
+    public static Color Amarelo01(){
+        return new Color(220, 220, 0);
+    }
     public static Color Cinza01(){
         return new Color(200, 200, 200);
     }
-    public static Color Amarelo01(){
-        return new Color(220, 220, 0);
+    public static Color Verde01(){
+        return new Color(0,200,0);
     }
 }
 
@@ -108,8 +116,6 @@ class Styles {
         component.setMinimumSize(size);
         component.setAlignmentX(Component.CENTER_ALIGNMENT);
         component.setBackground(Cores.Cinza01());
-
-        textArea.setBackground(Cores.Azul01());
     }
 
     public static void fontStyle(JLabel label){
@@ -138,9 +144,8 @@ class Btn extends JButton{
     // Configurações para as alternativas corretas
     public static void TrueButton(JButton button){
         Styles.buttonStyle(button);
-
         button.addActionListener(e -> {
-            button.setBackground(Cores.Cinza01());
+            button.setBackground(Cores.Verde01());
             System.out.println("[Evento] Usuário clicou no botão correto");
         });
     }
@@ -148,7 +153,6 @@ class Btn extends JButton{
     // Configurações para as alternativas incorretas
     public static void FalseButton(JButton button){
         Styles.buttonStyle(button);
-
         button.addActionListener(e -> {
             button.setBackground(Color.RED);
             System.out.println("[Evento] Usuário clicou no botão errado");
@@ -157,7 +161,21 @@ class Btn extends JButton{
 }
 class Panels extends JPanel{
     public static void TextArea(JPanel panel) {
+        Dimension size = new Dimension(900, 50);
+        panel.setPreferredSize(size);
+        panel.setMaximumSize(size);
+        panel.setMinimumSize(size);
+
         panel.setBackground(Color.GREEN);
-        
+        panel.setForeground(Color.WHITE);
+    }
+    public static void OptionsArea(JPanel panel) {
+        Dimension size = new Dimension(900, 50);
+        panel.setPreferredSize(size);
+        panel.setMaximumSize(size);
+        panel.setMinimumSize(size);
+
+        panel.setForeground(Color.GRAY);
+        panel.setBackground(Cores.Cinza01);
     }
 }
