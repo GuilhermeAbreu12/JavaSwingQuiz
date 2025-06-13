@@ -32,13 +32,17 @@ public class quiz{
         subtitle.setAlignmentX(Component.CENTER_ALIGNMENT);
         subtitle.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
 
-        // Retângulo de perguntas
+        // Criando os retângulos de perguntas e adicionando o estilo a eles
         JPanel question1 = new JPanel();
-        JPanel question2 = new JPanel();
-        
-        // Adição do estilo aos retângulos de perguntas
         Styles.questionStyle(question1);
+
+        JPanel question2 = new JPanel();
         Styles.questionStyle(question2);
+
+        // Separando os retângulos em duas partes
+        JPanel textArea = new JPanel();
+        Panels.TextArea(textArea);
+        JPanel optionsArea = new JPanel();
 
         // Textos das perguntas
         JLabel texto1 = new JLabel("O plural de degrau é degraus?");
@@ -48,10 +52,21 @@ public class quiz{
         Styles.fontStyle(texto1);
         Styles.fontStyle(texto2);
 
-        // Adicionando o texto ao retângulo de perguntas
-        question1.add(texto1);
+        textArea.add(texto1);
+
+        // Criando os botões de opções e adicionando as configurações correspondentes
+        JButton question1_option1 = new JButton("Verdadeiro");
+        Btn.TrueButton(question1_option1);
+        
+        JButton question1_option2 = new JButton("Falso");
+        Btn.FalseButton(question1_option2);
+
+        // Adicionando as dependências aos retângulos de perguntas
+        question1.add(question1_option1);
+        question1.add(question1_option2);
+
         question2.add(texto2);
-       
+
         // Adicionando as perguntas ao main com espaçamento entre elas
         main.add(subtitle);
         main.add(Box.createVerticalStrut(20)); 
@@ -92,13 +107,22 @@ class Styles {
         component.setMaximumSize(size);
         component.setMinimumSize(size);
         component.setAlignmentX(Component.CENTER_ALIGNMENT);
-
         component.setBackground(Cores.Cinza01());
+
+        textArea.setBackground(Cores.Azul01());
     }
+
     public static void fontStyle(JLabel label){
         label.setFont(Fontes.Sans_serif());
         label.setForeground(Color.BLACK);
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
+    }
+
+    public static void buttonStyle(JButton button){
+        button.setSize(500,300);
+        button.setBackground(Cores.Azul01());
+        button.setForeground(Color.WHITE);
+        button.setFocusable(false);
     }
 }
 class Fontes{
@@ -107,5 +131,33 @@ class Fontes{
     }
     public static Font Sans_serif_bold(){
         return new Font("SansSerif", Font.BOLD, 24);
+    }
+}
+
+class Btn extends JButton{
+    // Configurações para as alternativas corretas
+    public static void TrueButton(JButton button){
+        Styles.buttonStyle(button);
+
+        button.addActionListener(e -> {
+            button.setBackground(Cores.Cinza01());
+            System.out.println("[Evento] Usuário clicou no botão correto");
+        });
+    }
+
+    // Configurações para as alternativas incorretas
+    public static void FalseButton(JButton button){
+        Styles.buttonStyle(button);
+
+        button.addActionListener(e -> {
+            button.setBackground(Color.RED);
+            System.out.println("[Evento] Usuário clicou no botão errado");
+        });
+    }
+}
+class Panels extends JPanel{
+    public static void TextArea(JPanel panel) {
+        panel.setBackground(Color.GREEN);
+        
     }
 }
