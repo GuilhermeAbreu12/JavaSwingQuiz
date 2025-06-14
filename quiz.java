@@ -26,12 +26,19 @@ public class quiz{
         JPanel main = new JPanel();
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
 
-        JLabel subtitle = new JLabel("Teste seus conhecimentos sobre plurais");
-        subtitle.setFont(Fontes.Sans_serif());
-        subtitle.setForeground(Cores.Amarelo01());
-        subtitle.setAlignmentX(Component.CENTER_ALIGNMENT);
-        subtitle.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
+        JPanel subtitle = new JPanel();
+        Dimension size = new Dimension(500, 40);
+        subtitle.setPreferredSize(size);
+        subtitle.setMaximumSize(size);
+        subtitle.setMinimumSize(size);
 
+        JLabel subtitleText = new JLabel("Teste seus conhecimentos sobre plurais");
+        subtitleText.setFont(Fontes.Sans_serif());
+        subtitleText.setForeground(Cores.Verde01());
+        subtitleText.setAlignmentX(Component.CENTER_ALIGNMENT);
+        subtitleText.setBorder(BorderFactory.createEmptyBorder(0, 0, 2, 0));
+        
+        subtitle.add(subtitleText);
         // Criando os retângulos de perguntas e adicionando o estilo a eles
         JPanel question1 = new JPanel();
         Styles.questionStyle(question1);
@@ -40,11 +47,15 @@ public class quiz{
         Styles.questionStyle(question2);
 
         // Separando os retângulos em duas partes
-        JPanel textArea = new JPanel();
-        Panels.TextArea(textArea);
-    
+        JPanel textArea1 = new JPanel();
+        Panels.TextArea(textArea1);
         JPanel optionsArea1 = new JPanel();
         Panels.OptionsArea(optionsArea1);
+
+        JPanel textArea2 = new JPanel();
+        Panels.TextArea(textArea2);
+        JPanel optionsArea2 = new JPanel();
+        Panels.OptionsArea(optionsArea2);
 
         // Textos das perguntas
         JLabel texto1 = new JLabel("O plural de degrau é degraus?");
@@ -54,23 +65,28 @@ public class quiz{
         Styles.fontStyle(texto1);
         Styles.fontStyle(texto2);
 
-        textArea.add(texto1);
+        textArea1.add(texto1);
+        textArea2.add(texto2);
 
         // Criando os botões de opções e adicionando as configurações correspondentes
-        JButton question1_option1 = new JButton("Verdadeiro");
-        Btn.TrueButton(question1_option1);
-        
-        JButton question1_option2 = new JButton("Falso");
-        Btn.FalseButton(question1_option2);
+        JButton question1_option1 = new JButton("Verdadeiro"); Btn.TrueButton(question1_option1);
+        JButton question1_option2 = new JButton("Falso"); Btn.FalseButton(question1_option2);
+
+        JButton question2_option1 = new JButton("Verdadeiro"); Btn.FalseButton(question2_option1);
+        JButton question2_option2 = new JButton("Falso"); Btn.TrueButton(question2_option2);
 
         // Adicionando as dependências aos retângulos de perguntas
         optionsArea1.add(question1_option1);
         optionsArea1.add(question1_option2);
 
-        question1.add(textArea);
+        optionsArea2.add(question2_option1);
+        optionsArea2.add(question2_option2);
+
+        question1.add(textArea1);
         question1.add(optionsArea1);
 
-        question2.add(texto2);
+        question2.add(textArea2);
+        question2.add(optionsArea2);
 
         // Adicionando as perguntas ao main com espaçamento entre elas
         main.add(subtitle);
@@ -104,7 +120,7 @@ class Cores{
         return new Color(200, 200, 200);
     }
     public static Color Verde01(){
-        return new Color(0,200,0);
+        return new Color(0,140,0);
     }
 }
 
@@ -125,10 +141,14 @@ class Styles {
     }
 
     public static void buttonStyle(JButton button){
-        button.setSize(500,300);
+        Dimension size = new Dimension(150, 35);
+        button.setPreferredSize(size);
+        button.setMaximumSize(size);
+        button.setMinimumSize(size);
         button.setBackground(Cores.Azul01());
         button.setForeground(Color.WHITE);
         button.setFocusable(false);
+        
     }
 }
 class Fontes{
@@ -144,7 +164,7 @@ class Btn extends JButton{
     // Configurações para as alternativas corretas
     public static void TrueButton(JButton button){
         Styles.buttonStyle(button);
-        button.addActionListener(e -> {
+        button.addActionListener(e-> {
             button.setBackground(Cores.Verde01());
             System.out.println("[Evento] Usuário clicou no botão correto");
         });
@@ -161,12 +181,12 @@ class Btn extends JButton{
 }
 class Panels extends JPanel{
     public static void TextArea(JPanel panel) {
-        Dimension size = new Dimension(900, 50);
+        Dimension size = new Dimension(900, 40);
         panel.setPreferredSize(size);
         panel.setMaximumSize(size);
         panel.setMinimumSize(size);
 
-        panel.setBackground(Color.GREEN);
+        panel.setBackground(null);
         panel.setForeground(Color.WHITE);
     }
     public static void OptionsArea(JPanel panel) {
@@ -175,7 +195,7 @@ class Panels extends JPanel{
         panel.setMaximumSize(size);
         panel.setMinimumSize(size);
 
-        panel.setForeground(Color.GRAY);
-        panel.setBackground(Cores.Cinza01);
+        panel.setForeground(null);
+        panel.setBackground(Cores.Cinza01());
     }
 }
