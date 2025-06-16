@@ -164,9 +164,16 @@ public class quiz{
         main.add(Box.createVerticalStrut(20));
 
         // Footer
+        JLabel footerText = new JLabel("Desenvolvido por Guilherme.Abreu, João Pedro e Heitor");
+        footerText.setFont(Fontes.Sans_serif_light());
+        footerText.setForeground(Color.WHITE);
+        footerText.setAlignmentX(Component.CENTER_ALIGNMENT);
+        footerText.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
+
         JPanel footer = new JPanel();
         footer.setBackground(Cores.Azul01());
         footer.setPreferredSize(new Dimension(400, 60));
+        footer.add(footerText);
 
         // Configurações finais
         frame.add(header, BorderLayout.NORTH);
@@ -221,6 +228,9 @@ class Styles {
     }
 }
 class Fontes{
+    public static Font Sans_serif_light(){
+        return new Font("SansSerif", Font.PLAIN, 18);
+    }
     public static Font Sans_serif(){
         return new Font("SansSerif", Font.PLAIN, 24);
     }
