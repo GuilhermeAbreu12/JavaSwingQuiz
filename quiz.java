@@ -164,7 +164,7 @@ public class quiz{
         main.add(Box.createVerticalStrut(20));
 
         // Footer
-        JLabel footerText = new JLabel("Desenvolvido por Guilherme.Abreu, João Pedro e Heitor");
+        JLabel footerText = new JLabel("<html><p>Desenvolvido por Guilherme S.Abreu, Heitor e João Pedro &copy; 2025</p></html>");
         footerText.setFont(Fontes.Sans_serif_light());
         footerText.setForeground(Color.WHITE);
         footerText.setAlignmentX(Component.CENTER_ALIGNMENT);
