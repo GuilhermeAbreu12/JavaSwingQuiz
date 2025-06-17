@@ -3,12 +3,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.*;
 
+// Título do Header
 class Titulo extends JLabel{
     public Titulo(){
-        // Criando e adicionando um título ao header
-        JLabel titulo = new JLabel("<html>Portu<span style='color: yellow;'>Quiz</span></html>");
-        titulo.setFont(Fontes.Sans_serif_bold());
-        titulo.setForeground(Color.WHITE);
+        super("<html>Portu<span style='color: yellow;'>Quiz</span></html>");
+        setFont(Fontes.Sans_serif_bold());
+        setForeground(Color.WHITE);
     }
 }
 public class Header extends JPanel{
