@@ -1,10 +1,9 @@
 package components;
-import java.awt.*;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import components.questions.Question01;
+import components.questions.*;
 
 public class Main extends JPanel{
     public Main(){

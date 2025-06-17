@@ -5,7 +5,6 @@ import javax.swing.plaf.basic.BasicScrollBarUI;
 
 public class CustomScrollPane extends JScrollPane{
     public CustomScrollPane(){
-
         setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         getVerticalScrollBar().setUI(new BasicScrollBarUI() {
             @Override
