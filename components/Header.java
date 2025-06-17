@@ -11,16 +11,12 @@ class Titulo extends JLabel{
         setForeground(Color.WHITE);
     }
 }
-
-// Classe Header
 public class Header extends JPanel{
     public Header(){
-        // Configurando o Header
-        setLayout(new GridBagLayout());
+        new GridBagLayout();
         setBackground(Cores.Azul01());
         setPreferredSize(new Dimension(400, 60));
 
-        // Adicionando o título ao Header
         add(new Titulo());
     }
 }
