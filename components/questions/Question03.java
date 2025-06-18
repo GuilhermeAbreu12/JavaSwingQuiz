@@ -5,6 +5,7 @@ import components.*;
 public class Question03 extends JPanel{
     public Question03(){
         Styles.questionStyle(this);
+        
         // Adicionando as áreas de texto e opções às perguntas
         add(new TextArea03());
         add(new OptionsArea03());
@@ -15,8 +16,7 @@ public class Question03 extends JPanel{
 // Separando os retângulos em duas partes
 class TextArea03 extends JPanel{
     public TextArea03(){
-        new Panels().TextArea(new TextArea03());
-        
+        new Panels().TextArea(this);
         // Adicionando2 o texto à área de texto
         add(new Texto03());
     }
@@ -37,7 +37,7 @@ class Texto03 extends JLabel{
 // Áreas de opções
 class OptionsArea03 extends JPanel{
     public OptionsArea03(){
-        new Panels().OptionsArea(new OptionsArea03());
+        new Panels().OptionsArea(this);
 
         // Adicionando as dependências aos retângulos de perguntas
         add(new Question03Option01());

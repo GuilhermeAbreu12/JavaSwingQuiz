@@ -15,8 +15,7 @@ public class Question04 extends JPanel{
 // Separando os retângulos em duas partes
 class TextArea04 extends JPanel{
     public TextArea04(){
-        new Panels().TextArea(new TextArea04());
-        
+        new Panels().TextArea(this);
         // Adicionando2 o texto à área de texto
         add(new Texto04());
     }
@@ -37,8 +36,7 @@ class Texto04 extends JLabel{
 // Áreas de opções
 class OptionsArea04 extends JPanel{
     public OptionsArea04(){
-        new Panels().OptionsArea(new OptionsArea04());
-
+        new Panels().OptionsArea(this);
         // Adicionando as dependências aos retângulos de perguntas
         add(new Question04Option01());
         add(new Question04Option02());
