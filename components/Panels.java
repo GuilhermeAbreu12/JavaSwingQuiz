@@ -10,8 +10,7 @@ public class Panels extends JPanel{
         setMaximumSize(size);
         setMinimumSize(size);
 
-        setBackground(null);
-        setForeground(Color.WHITE);
+        setForeground(null);
     }
     public void OptionsArea(JPanel panel) {
         Dimension size = new Dimension(900, 50);
@@ -20,7 +19,6 @@ public class Panels extends JPanel{
         setMinimumSize(size);
 
         setForeground(null);
-        setBackground(Cores.Cinza01());
     }
 }
 
