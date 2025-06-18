@@ -19,6 +19,23 @@ public class CustomScrollPane extends JScrollPane{
                 this.trackColor = Color.WHITE; // Cor do FUNDO da barra de rolagem
             }
 
+            // Tirando os botões para subir e descer da barra (são feios ;-;)
+            @Override
+            protected JButton createDecreaseButton(int orientation){
+                return createZeroButton();
+            }
+
+            @Override
+            protected JButton createIncreaseButton(int orientation){
+                return createZeroButton();
+            }
+
+            private JButton createZeroButton(){
+                JButton button = new JButton();
+                button.setPreferredSize(new Dimension(0, 0));
+                button.setMinimumSize(new Dimension(0, 0));
+                button.setMaximumSize(new Dimension(0, 0));
+                return button;
             }
         });
     }
