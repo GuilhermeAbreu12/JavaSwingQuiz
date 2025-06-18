@@ -18,6 +18,7 @@ public class Question01 extends JPanel{
 class TextArea01 extends JPanel{
     public TextArea01(){
         new Panels().TextArea(this);
+        setBackground(Cores.Cinza01());
         
         // Adicionando o texto à área de texto
         add(new Texto01());
@@ -33,7 +34,6 @@ class Texto01 extends JLabel{
         Styles.fontStyle(this);
     }
 }
-
 
 // Áreas de opções
 class OptionsArea01 extends JPanel{

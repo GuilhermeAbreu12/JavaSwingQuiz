@@ -17,6 +17,8 @@ public class Question03 extends JPanel{
 class TextArea03 extends JPanel{
     public TextArea03(){
         new Panels().TextArea(this);
+        setBackground(Cores.Cinza01());
+
         // Adicionando2 o texto à área de texto
         add(new Texto03());
     }
@@ -38,6 +40,7 @@ class Texto03 extends JLabel{
 class OptionsArea03 extends JPanel{
     public OptionsArea03(){
         new Panels().OptionsArea(this);
+        setBackground(Cores.Cinza01());
 
         // Adicionando as dependências aos retângulos de perguntas
         add(new Question03Option01());
