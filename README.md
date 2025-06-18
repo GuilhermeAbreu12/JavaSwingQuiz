@@ -10,3 +10,5 @@ O quiz terá o tema língua portuguesa, especificamente questões sobre plural (
 
 ## Observação
 Caro programador que analisar este meu projeto, peço que não indigne-se pelo nome dos commits, ainda estou aprendendo a forma correta de fazê-los, a fim de melhorar cada vez mais não só o resultado visual, mas a qualidade do código desde o início do desenvolvimento.
+
+![Captura de tela do projeto](image.png)
