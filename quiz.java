@@ -1,5 +1,5 @@
 import components.Framer;
-public class quiz{
+public class Quiz{
     public static void main(String[] args){
         new Framer();
     }

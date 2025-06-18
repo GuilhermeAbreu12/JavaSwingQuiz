@@ -7,12 +7,10 @@ import components.questions.*;
 
 public class Main extends JPanel{
     public Main(){
-        setLayout(
-            new BoxLayout(
-                new Main(), 
-                BoxLayout.Y_AXIS
-            )
-        );
+        // Criando um layout e colocando os elementos na vertical
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        
+        // Adicionando filhos da Main
         add(new Subtitle());
         add(Box.createVerticalStrut(20)); 
         
